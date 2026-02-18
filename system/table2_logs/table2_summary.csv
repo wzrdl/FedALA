@@ -1,0 +1,9 @@
+key,column,dataset,status,runs,mean,std,log
+pathological_mnist,MNIST,mnist-pathological-npz,ok,1,0.7576349024110218,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\pathological_mnist.log
+pathological_cifar10,Cifar10,cifar10-pathological-npz,ok,1,0.4407506702412869,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\pathological_cifar10.log
+pathological_cifar100,Cifar100,cifar100-pathological-npz,ok,1,0.02904091213950369,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\pathological_cifar100.log
+practical_cifar10,Cifar10,cifar10-dir0.1-npz,ok,1,0.1350301406563965,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\practical_cifar10.log
+practical_cifar100,Cifar100,cifar100-dir0.1-npz,ok,1,0.015261044176706828,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\practical_cifar100.log
+practical_tiny_cnn,TINY,tiny-imagenet-dir0.1-npz,ok,1,0.006420545746388443,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\practical_tiny_cnn.log
+practical_tiny_resnet,TINY*,tiny-imagenet-dir0.1-npz,ok,1,0.02351524879614767,0.0,C:\Users\24717\Desktop\FedALA\system\table2_logs\practical_tiny_resnet.log
+practical_agnews,AG News,agnews-dir0.1-npz,failed(1),0,,,C:\Users\24717\Desktop\FedALA\system\table2_logs\practical_agnews.log

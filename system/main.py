@@ -4,19 +4,28 @@ import os
 import time
 import warnings
 import numpy as np
+import random
 import torchvision
 
 from flcore.servers.serverALA import FedALA
 from flcore.trainmodel.models import *
 
 warnings.simplefilter("ignore")
-torch.manual_seed(0)
 
 # hyper-params for AG News
 vocab_size = 98635
 max_len=200
 
 hidden_dim=32
+
+
+def set_random_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
 
 def run(args):
 
@@ -25,14 +34,18 @@ def run(args):
 
     for i in range(args.prev, args.times):
         print(f"\n============= Running time: {i}th =============")
+        seed = args.seed + i
+        set_random_seed(seed)
+        print(f"Seed: {seed}")
         print("Creating server and clients ...")
         start = time.time()
 
         # Generate args.model
         if model_str == "cnn":
-            if args.dataset[:5] == "mnist":
+            dataset_name = args.dataset.lower()
+            if "mnist" in dataset_name:
                 args.model = FedAvgCNN(in_features=1, num_classes=args.num_classes, dim=1024).to(args.device)
-            elif args.dataset[:5] == "Cifar":
+            elif "cifar" in dataset_name:
                 args.model = FedAvgCNN(in_features=3, num_classes=args.num_classes, dim=1600).to(args.device)
             else:
                 args.model = FedAvgCNN(in_features=3, num_classes=args.num_classes, dim=10816).to(args.device)
@@ -98,6 +111,12 @@ if __name__ == "__main__":
     parser.add_argument('-s', "--rand_percent", type=int, default=80)
     parser.add_argument('-p', "--layer_idx", type=int, default=2,
                         help="More fine-grained than its original paper.")
+    parser.add_argument("--ala_threshold", type=float, default=0.1,
+                        help="Convergence threshold in ALA start phase.")
+    parser.add_argument("--ala_num_pre_loss", type=int, default=10,
+                        help="Number of recent losses to compute ALA std.")
+    parser.add_argument("--seed", type=int, default=0,
+                        help="Base random seed. The i-th run uses seed+i.")
 
     args = parser.parse_args()
 

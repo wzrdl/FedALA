@@ -3,24 +3,34 @@ import os
 import torch
 
 
+def _resolve_client_file(data_dir, idx, split):
+    # Support both PFLlib-style names (0.npz) and generated names (train0_.npz/test0_.npz).
+    candidates = [
+        os.path.join(data_dir, f"{idx}.npz"),
+        os.path.join(data_dir, f"{split}{idx}.npz"),
+        os.path.join(data_dir, f"{split}{idx}_.npz"),
+        os.path.join(data_dir, f"{idx}_.npz"),
+    ]
+
+    for file_path in candidates:
+        if os.path.exists(file_path):
+            return file_path
+
+    raise FileNotFoundError(
+        f"Cannot find client file for split='{split}', idx={idx} under '{data_dir}'. "
+        f"Tried: {candidates}"
+    )
+
+
 def read_data(dataset, idx, is_train=True):
-    if is_train:
-        train_data_dir = os.path.join('../dataset', dataset, 'train/')
+    split = 'train' if is_train else 'test'
+    data_dir = os.path.join('../dataset', dataset, split)
+    data_file = _resolve_client_file(data_dir, idx, split)
 
-        train_file = train_data_dir + str(idx) + '.npz'
-        with open(train_file, 'rb') as f:
-            train_data = np.load(f, allow_pickle=True)['data'].tolist()
+    with open(data_file, 'rb') as f:
+        data = np.load(f, allow_pickle=True)['data'].tolist()
 
-        return train_data
-
-    else:
-        test_data_dir = os.path.join('../dataset', dataset, 'test/')
-
-        test_file = test_data_dir + str(idx) + '.npz'
-        with open(test_file, 'rb') as f:
-            test_data = np.load(f, allow_pickle=True)['data'].tolist()
-
-        return test_data
+    return data
 
 
 def read_client_data(dataset, idx, is_train=True):

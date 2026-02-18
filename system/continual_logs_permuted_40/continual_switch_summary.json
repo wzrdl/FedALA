@@ -1,0 +1,38 @@
+{
+  "task1_acc_before": {
+    "mean": 0.10195339273474983,
+    "std": 0.0
+  },
+  "task1_acc_after_task1": {
+    "mean": 0.9313456705506055,
+    "std": 0.0
+  },
+  "task1_peak_during_task1": {
+    "mean": 0.9719701321079839,
+    "std": 0.0
+  },
+  "task2_acc_before": {
+    "mean": 0.12879826365090244,
+    "std": 0.0
+  },
+  "task2_acc_after_task2": {
+    "mean": 0.9318597212702765,
+    "std": 0.0
+  },
+  "task1_acc_after_task2": {
+    "mean": 0.8212816997943797,
+    "std": 0.0
+  },
+  "forgetting_from_switch": {
+    "mean": 0.11006397075622576,
+    "std": 0.0
+  },
+  "forgetting_from_peak": {
+    "mean": 0.15068843231360418,
+    "std": 0.0
+  },
+  "task2_gain": {
+    "mean": 0.8030614576193741,
+    "std": 0.0
+  }
+}

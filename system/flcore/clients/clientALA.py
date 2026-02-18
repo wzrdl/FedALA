@@ -30,10 +30,13 @@ class clientALA(object):
         self.eta = args.eta
         self.rand_percent = args.rand_percent
         self.layer_idx = args.layer_idx
+        self.ala_threshold = args.ala_threshold
+        self.ala_num_pre_loss = args.ala_num_pre_loss
 
         train_data = read_client_data(self.dataset, self.id, is_train=True)
         self.ALA = ALA(self.id, self.loss, train_data, self.batch_size, 
-                    self.rand_percent, self.layer_idx, self.eta, self.device)
+                    self.rand_percent, self.layer_idx, self.eta, self.device,
+                    self.ala_threshold, self.ala_num_pre_loss)
 
 
     def train(self):
@@ -91,7 +94,7 @@ class clientALA(object):
                 test_acc += (torch.sum(torch.argmax(output, dim=1) == y)).item()
                 test_num += y.shape[0]
 
-                y_prob.append(F.softmax(output).detach().cpu().numpy())
+                y_prob.append(F.softmax(output, dim=1).detach().cpu().numpy())
                 nc = self.num_classes
                 if self.num_classes == 2:
                     nc += 1

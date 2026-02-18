@@ -1,0 +1,24 @@
+
+============= Running time: 0th =============
+Seed: 0
+Creating server and clients ...
+fastText(
+  (embedding): Embedding(98635, 32, padding_idx=0)
+  (fc1): Linear(in_features=32, out_features=32, bias=True)
+  (fc): Linear(in_features=32, out_features=4, bias=True)
+)
+Traceback (most recent call last):
+  File "C:\Users\24717\Desktop\FedALA\system\main.py", line 130, in <module>
+    run(args)
+    ~~~^^^^^^
+  File "C:\Users\24717\Desktop\FedALA\system\main.py", line 65, in run
+    server = FedALA(args, i)
+  File "C:\Users\24717\Desktop\FedALA\system\flcore\servers\serverALA.py", line 34, in __init__
+    self.set_clients(args, clientALA)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\24717\Desktop\FedALA\system\flcore\servers\serverALA.py", line 73, in set_clients
+    train_data = read_client_data(self.dataset, i, is_train=True)
+  File "C:\Users\24717\Desktop\FedALA\system\utils\data_utils.py", line 44, in read_client_data
+    X_train = torch.Tensor(train_data['x']).type(torch.float32)
+              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: can't convert np.ndarray of type numpy.object_. The only supported types are: float64, float32, float16, complex64, complex128, int64, int32, int16, int8, uint64, uint32, uint16, uint8, and bool.

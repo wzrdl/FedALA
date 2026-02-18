@@ -1,0 +1,218 @@
+
+============= Running time: 0th =============
+Seed: 0
+Creating server and clients ...
+ResNet(
+  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): Linear(in_features=512, out_features=200, bias=True)
+)
+
+Join ratio / total clients: 1.0 / 20
+Finished creating server and clients.
+
+-------------Round number: 0-------------
+
+Evaluate global model
+Client 0: Acc: 0.0031496062992125984, AUC: 0.49072648567407684
+Client 1: Acc: 0.0, AUC: 0.5912437243372786
+Client 2: Acc: 0.0392, AUC: 0.522328760603015
+Client 3: Acc: 0.0, AUC: 0.4800153857286432
+Client 4: Acc: 0.0007751937984496124, AUC: 0.5177236582528049
+Client 5: Acc: 0.0, AUC: 0.4984124222219129
+Client 6: Acc: 0.0, AUC: 0.42705442525046494
+Client 7: Acc: 0.0, AUC: 0.4660953587381351
+Client 8: Acc: 0.0109375, AUC: 0.4787572904807239
+Client 9: Acc: 0.005384615384615384, AUC: 0.5506429990187625
+Client 10: Acc: 0.0022058823529411764, AUC: 0.5601007456725671
+Client 11: Acc: 0.004310344827586207, AUC: 0.49824844906757326
+Client 12: Acc: 0.0140625, AUC: 0.5665511410200417
+Client 13: Acc: 0.00078125, AUC: 0.4354431505059477
+Client 14: Acc: 0.0, AUC: 0.46741921524044056
+Client 15: Acc: 0.0058823529411764705, AUC: 0.4269187796682374
+Client 16: Acc: 0.0, AUC: 0.5305776187802663
+Client 17: Acc: 0.005511811023622047, AUC: 0.4822388213620648
+Client 18: Acc: 0.0, AUC: 0.5282163257076514
+Client 19: Acc: 0.0007692307692307692, AUC: 0.47369803009128486
+Client 0: Train loss: 5.347768776060089
+Client 1: Train loss: 5.243420872531954
+Client 2: Train loss: 5.2941587460835775
+Client 3: Train loss: 5.348184937795003
+Client 4: Train loss: 5.325709154439527
+Client 5: Train loss: 5.343844451999903
+Client 6: Train loss: 5.371372078594408
+Client 7: Train loss: 5.372785284248415
+Client 8: Train loss: 5.361754167234743
+Client 9: Train loss: 5.2973395775525995
+Client 10: Train loss: 5.295998529000504
+Client 11: Train loss: 5.338974493724812
+Client 12: Train loss: 5.260154375185569
+Client 13: Train loss: 5.4116388343158786
+Client 14: Train loss: 5.377164474956652
+Client 15: Train loss: 5.382057755601172
+Client 16: Train loss: 5.322340549424637
+Client 17: Train loss: 5.33481001352009
+Client 18: Train loss: 5.305423501918191
+Client 19: Train loss: 5.383071470138667
+Averaged Train Loss: 5.3377
+Averaged Test Accurancy: 0.0047
+Averaged Test AUC: 0.4979
+Std Test Accurancy: 0.0088
+Std Test AUC: 0.0450
+-------------------------------------------------- 159.27652287483215
+Client: 0 	Std: 0.002850899006353103 	ALA epochs: 11
+Client: 1 	Std: 0.001215257048143656 	ALA epochs: 11
+Client: 2 	Std: 0.0014809179310559576 	ALA epochs: 11
+Client: 3 	Std: 0.001877413914568954 	ALA epochs: 11
+Client: 4 	Std: 0.0021654099522609763 	ALA epochs: 11
+Client: 5 	Std: 0.007226376919795281 	ALA epochs: 11
+Client: 6 	Std: 0.0018487990099175504 	ALA epochs: 11
+Client: 7 	Std: 0.000790037209605663 	ALA epochs: 11
+Client: 8 	Std: 0.0010333725116211253 	ALA epochs: 11
+Client: 9 	Std: 0.0008443995591704852 	ALA epochs: 11
+Client: 10 	Std: 0.0004346014846321431 	ALA epochs: 11
+Client: 11 	Std: 0.004169925418124714 	ALA epochs: 11
+Client: 12 	Std: 0.002488316227970468 	ALA epochs: 11
+Client: 13 	Std: 0.005634328931752608 	ALA epochs: 11
+Client: 14 	Std: 0.0021174315267049066 	ALA epochs: 11
+Client: 15 	Std: 0.001249239864808669 	ALA epochs: 11
+Client: 16 	Std: 0.0028383776986327753 	ALA epochs: 11
+Client: 17 	Std: 0.004155076953131813 	ALA epochs: 11
+Client: 18 	Std: 0.00458941278501501 	ALA epochs: 11
+Client: 19 	Std: 0.0006968455241415139 	ALA epochs: 11
+
+-------------Round number: 1-------------
+
+Evaluate global model
+Client 0: Acc: 0.009448818897637795, AUC: 0.6766064621576479
+Client 1: Acc: 0.0, AUC: 0.5535610570762669
+Client 2: Acc: 0.0064, AUC: 0.6845906283417085
+Client 3: Acc: 0.0296, AUC: 0.7053039646231155
+Client 4: Acc: 0.013953488372093023, AUC: 0.5733897101033079
+Client 5: Acc: 0.03609022556390978, AUC: 0.74309574754887
+Client 6: Acc: 0.010317460317460317, AUC: 0.6531687000130408
+Client 7: Acc: 0.021666666666666667, AUC: 0.597247518844221
+Client 8: Acc: 0.02890625, AUC: 0.638018760489459
+Client 9: Acc: 0.03923076923076923, AUC: 0.5878889833784307
+Client 10: Acc: 0.009558823529411765, AUC: 0.5794508197344856
+Client 11: Acc: 0.02586206896551724, AUC: 0.49085152650888214
+Client 12: Acc: 0.028125, AUC: 0.6843888632616205
+Client 13: Acc: 0.04140625, AUC: 0.6897612129863183
+Client 14: Acc: 0.010236220472440945, AUC: 0.6625533520413776
+Client 15: Acc: 0.013235294117647059, AUC: 0.5290454706490932
+Client 16: Acc: 0.05263157894736842, AUC: 0.6546101138966609
+Client 17: Acc: 0.013385826771653543, AUC: 0.7211585159351224
+Client 18: Acc: 0.022222222222222223, AUC: 0.6523439048986429
+Client 19: Acc: 0.052307692307692305, AUC: 0.700239423448604
+Client 0: Train loss: 5.151812316864494
+Client 1: Train loss: 5.276354088157904
+Client 2: Train loss: 5.193867228190104
+Client 3: Train loss: 5.1034302864074705
+Client 4: Train loss: 5.248654186879634
+Client 5: Train loss: 5.098258926754906
+Client 6: Train loss: 5.19639080574638
+Client 7: Train loss: 5.245821557877137
+Client 8: Train loss: 5.226438433164126
+Client 9: Train loss: 5.235435119042029
+Client 10: Train loss: 5.254824323584224
+Client 11: Train loss: 5.34241992664612
+Client 12: Train loss: 5.147965405136347
+Client 13: Train loss: 5.163563246554044
+Client 14: Train loss: 5.168582398229868
+Client 15: Train loss: 5.294650684384739
+Client 16: Train loss: 5.202174226905024
+Client 17: Train loss: 5.114816685726768
+Client 18: Train loss: 5.197752598712319
+Client 19: Train loss: 5.142273683377239
+Averaged Train Loss: 5.1985
+Averaged Test Accurancy: 0.0235
+Averaged Test AUC: 0.6407
+Std Test Accurancy: 0.0148
+Std Test AUC: 0.0666
+-------------------------------------------------- 493.3564212322235
+
+Best global accuracy.
+0.02351524879614767
+493.3564212322235
+
+Average time cost: 679.03s.
+All done!

@@ -1,0 +1,151 @@
+
+============= Running time: 0th =============
+Seed: 0
+Creating server and clients ...
+FedAvgCNN(
+  (conv1): Sequential(
+    (0): Conv2d(3, 32, kernel_size=(5, 5), stride=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (conv2): Sequential(
+    (0): Conv2d(32, 64, kernel_size=(5, 5), stride=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (fc1): Sequential(
+    (0): Linear(in_features=1600, out_features=512, bias=True)
+    (1): ReLU(inplace=True)
+  )
+  (fc): Linear(in_features=512, out_features=100, bias=True)
+)
+
+Join ratio / total clients: 1.0 / 20
+Finished creating server and clients.
+
+-------------Round number: 0-------------
+
+Evaluate global model
+Client 0: Acc: 0.0, AUC: 0.4279405342312009
+Client 1: Acc: 0.014473684210526316, AUC: 0.5033409842888721
+Client 2: Acc: 0.010294117647058823, AUC: 0.44375217355213026
+Client 3: Acc: 0.0, AUC: 0.4454602199775533
+Client 4: Acc: 0.00909090909090909, AUC: 0.48222288310098227
+Client 5: Acc: 0.019444444444444445, AUC: 0.3893604057550817
+Client 6: Acc: 0.002564102564102564, AUC: 0.5169088734152836
+Client 7: Acc: 0.019736842105263157, AUC: 0.4396069507400879
+Client 8: Acc: 0.015714285714285715, AUC: 0.4753232220160791
+Client 9: Acc: 0.0075, AUC: 0.5953944365530304
+Client 10: Acc: 0.0463768115942029, AUC: 0.5365386165795744
+Client 11: Acc: 0.0, AUC: 0.41737909136718665
+Client 12: Acc: 0.00853658536585366, AUC: 0.5367023897511702
+Client 13: Acc: 0.0013513513513513514, AUC: 0.49372621392891664
+Client 14: Acc: 0.0024390243902439024, AUC: 0.6304701386259982
+Client 15: Acc: 0.0, AUC: 0.43016629144834273
+Client 16: Acc: 0.0036144578313253013, AUC: 0.6351839193209494
+Client 17: Acc: 0.06363636363636363, AUC: 0.499851893591563
+Client 18: Acc: 0.0, AUC: 0.4218119147025814
+Client 19: Acc: 0.0, AUC: 0.4919872691411153
+Client 0: Train loss: 4.616134793357512
+Client 1: Train loss: 4.604785486271507
+Client 2: Train loss: 4.60930503456338
+Client 3: Train loss: 4.611428273406848
+Client 4: Train loss: 4.608097514720878
+Client 5: Train loss: 4.620693415264751
+Client 6: Train loss: 4.604111186459533
+Client 7: Train loss: 4.611785554049308
+Client 8: Train loss: 4.604339513324556
+Client 9: Train loss: 4.593101356426875
+Client 10: Train loss: 4.598891348078631
+Client 11: Train loss: 4.617279341496319
+Client 12: Train loss: 4.602796843381432
+Client 13: Train loss: 4.60480556187329
+Client 14: Train loss: 4.590930653004511
+Client 15: Train loss: 4.616113962271275
+Client 16: Train loss: 4.587662042617798
+Client 17: Train loss: 4.599346818345966
+Client 18: Train loss: 4.6164375695888165
+Client 19: Train loss: 4.608403592231946
+Averaged Train Loss: 4.6062
+Averaged Test Accurancy: 0.0106
+Averaged Test AUC: 0.4924
+Std Test Accurancy: 0.0162
+Std Test AUC: 0.0677
+-------------------------------------------------- 19.81654667854309
+Client: 0 	Std: 4.725571716622085e-05 	ALA epochs: 11
+Client: 1 	Std: 0.00044853498140318593 	ALA epochs: 11
+Client: 2 	Std: 0.006728913163834955 	ALA epochs: 11
+Client: 3 	Std: 0.003642900282460486 	ALA epochs: 11
+Client: 4 	Std: 0.0002389627730995404 	ALA epochs: 11
+Client: 5 	Std: 0.0015925959593457793 	ALA epochs: 11
+Client: 6 	Std: 0.00019068002508525406 	ALA epochs: 11
+Client: 7 	Std: 0.0005160192158330365 	ALA epochs: 11
+Client: 8 	Std: 0.0019516414339910211 	ALA epochs: 11
+Client: 9 	Std: 0.0020355429538405838 	ALA epochs: 11
+Client: 10 	Std: 9.059063972695221e-05 	ALA epochs: 11
+Client: 11 	Std: 0.0006811702906002941 	ALA epochs: 11
+Client: 12 	Std: 0.002768971643613849 	ALA epochs: 11
+Client: 13 	Std: 0.0002375389849153922 	ALA epochs: 11
+Client: 14 	Std: 0.0016298298671134713 	ALA epochs: 11
+Client: 15 	Std: 0.0020593918090086767 	ALA epochs: 11
+Client: 16 	Std: 0.0006271471723938511 	ALA epochs: 11
+Client: 17 	Std: 0.000303127556745481 	ALA epochs: 11
+Client: 18 	Std: 0.0016745955244774544 	ALA epochs: 11
+Client: 19 	Std: 0.002050940916822427 	ALA epochs: 11
+
+-------------Round number: 1-------------
+
+Evaluate global model
+Client 0: Acc: 0.010666666666666666, AUC: 0.521956911335578
+Client 1: Acc: 0.0, AUC: 0.5622523363832228
+Client 2: Acc: 0.0029411764705882353, AUC: 0.5537405630701479
+Client 3: Acc: 0.0, AUC: 0.5359759191919192
+Client 4: Acc: 0.016666666666666666, AUC: 0.5721614097819332
+Client 5: Acc: 0.008333333333333333, AUC: 0.47240526406035666
+Client 6: Acc: 0.0, AUC: 0.6411174283930694
+Client 7: Acc: 0.04078947368421053, AUC: 0.472355733582361
+Client 8: Acc: 0.0014285714285714286, AUC: 0.5519769532055246
+Client 9: Acc: 0.00125, AUC: 0.6928706597222222
+Client 10: Acc: 0.02463768115942029, AUC: 0.6033823426451026
+Client 11: Acc: 0.0035714285714285713, AUC: 0.5671925891568749
+Client 12: Acc: 0.0024390243902439024, AUC: 0.5070948028770753
+Client 13: Acc: 0.032432432432432434, AUC: 0.5601601017479396
+Client 14: Acc: 0.032926829268292684, AUC: 0.7006187319356564
+Client 15: Acc: 0.002564102564102564, AUC: 0.5608334578526887
+Client 16: Acc: 0.05903614457831325, AUC: 0.6515789921276929
+Client 17: Acc: 0.02878787878787879, AUC: 0.570455507786775
+Client 18: Acc: 0.005333333333333333, AUC: 0.45013402469135805
+Client 19: Acc: 0.03230769230769231, AUC: 0.6257711792481023
+Client 0: Train loss: 4.603573107086452
+Client 1: Train loss: 4.569511252537108
+Client 2: Train loss: 4.594559560701685
+Client 3: Train loss: 4.596436945877412
+Client 4: Train loss: 4.586467901865642
+Client 5: Train loss: 4.6586587240529616
+Client 6: Train loss: 4.536029181928716
+Client 7: Train loss: 4.62064354252397
+Client 8: Train loss: 4.571505374000186
+Client 9: Train loss: 4.479983049631119
+Client 10: Train loss: 4.556414613401256
+Client 11: Train loss: 4.586486596035292
+Client 12: Train loss: 4.622756721527596
+Client 13: Train loss: 4.572966917141064
+Client 14: Train loss: 4.501458256833466
+Client 15: Train loss: 4.584767914225912
+Client 16: Train loss: 4.504929431915283
+Client 17: Train loss: 4.534689578143033
+Client 18: Train loss: 4.675577613225593
+Client 19: Train loss: 4.532174638601449
+Averaged Train Loss: 4.5740
+Averaged Test Accurancy: 0.0153
+Averaged Test AUC: 0.5697
+Std Test Accurancy: 0.0167
+Std Test AUC: 0.0670
+-------------------------------------------------- 74.89139747619629
+
+Best global accuracy.
+0.015261044176706828
+74.89139747619629
+
+Average time cost: 99.58s.
+All done!

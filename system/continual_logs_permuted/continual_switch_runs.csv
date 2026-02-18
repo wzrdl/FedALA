@@ -1,0 +1,2 @@
+run_id,seed,task1_acc_before,task1_acc_after_task1,task1_peak_during_task1,task2_acc_before,task2_acc_after_task2,task1_acc_after_task2,forgetting_from_switch,forgetting_from_peak,task2_gain
+0,0,0.10195339273474983,0.8476125199908613,0.10189546237794371,0.09218642906100069,0.88262508567512,0.8094014164953164,0.03821110349554491,-0.7075059541173727,0.7904386566141193
