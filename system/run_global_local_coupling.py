@@ -760,72 +760,6 @@ def fit_switch_interaction_ols(
     }
 
 
-def scale_values(
-    values: np.ndarray,
-    scale: str,
-    signed: bool = False,
-) -> np.ndarray:
-    x = np.asarray(values, dtype=float)
-    if scale == "raw":
-        return x
-    if scale != "log":
-        raise ValueError(f"Unsupported scale: {scale}")
-    if signed or np.any(x < 0.0):
-        return np.sign(x) * np.log1p(np.abs(x))
-    return np.log1p(x)
-
-
-def scale_label(base_label: str, scale: str, signed: bool = False) -> str:
-    if scale == "raw":
-        return base_label
-    if signed:
-        return f"signed_log1p({base_label})"
-    return f"log1p({base_label})"
-
-
-def plot_dual_scale_switch_decomposition(
-    df: pd.DataFrame,
-    x_col: str,
-    y_col: str,
-    out_dir: Path,
-    out_prefix: str,
-    title: str,
-    x_label: str,
-    y_label: str,
-    switch_col: str = "switch_label",
-    log_x: bool = True,
-    log_y: bool = False,
-    signed_x: bool = False,
-    signed_y: bool = False,
-):
-    for scale in ["raw", "log"]:
-        cur = df.copy()
-        cur["_x"] = scale_values(
-            cur[x_col].to_numpy(dtype=float),
-            scale if log_x else "raw",
-            signed=signed_x,
-        )
-        cur["_y"] = scale_values(
-            cur[y_col].to_numpy(dtype=float),
-            scale if log_y else "raw",
-            signed=signed_y,
-        )
-
-        x_lab = scale_label(x_label, scale, signed=signed_x) if log_x else x_label
-        y_lab = scale_label(y_label, scale, signed=signed_y) if log_y else y_label
-
-        plot_switch_decomposition(
-            df=cur,
-            x_col="_x",
-            y_col="_y",
-            out_path=out_dir / f"{out_prefix}_{scale}.png",
-            title=f"{title} [{scale}]",
-            x_label=x_lab,
-            y_label=y_lab,
-            switch_col=switch_col,
-        )
-
-
 def plot_switch_decomposition(
     df: pd.DataFrame,
     x_col: str,
@@ -1032,81 +966,6 @@ def plot_experiment_5(model_metrics: Dict[str, Dict[str, object]], out_dir: Path
     fig.tight_layout()
     fig.savefig(out_dir / "fig_exp5_model_compare.png", dpi=230)
     plt.close(fig)
-
-
-def plot_core_questions(
-    global_df: pd.DataFrame,
-    client_df: pd.DataFrame,
-    switch_local_df: pd.DataFrame,
-    out_dir: Path,
-):
-    # Q1: global forgetting vs global upper bound.
-    plot_dual_scale_switch_decomposition(
-        df=global_df,
-        x_col="B_G",
-        y_col="F_global_loss",
-        out_dir=out_dir,
-        out_prefix="fig_q1_global_forgetting_vs_global_upper",
-        title="Q1: Global Forgetting vs Global Upper Bound",
-        x_label="B_G",
-        y_label="F_global_loss",
-        log_x=True,
-        log_y=False,
-    )
-
-    # Q2: global forgetting vs mean local forgetting at same (seed, switch).
-    q2_df = global_df[
-        ["seed", "src_idx", "dst_idx", "switch_label", "F_global_loss"]
-    ].merge(
-        switch_local_df[
-            ["seed", "src_idx", "dst_idx", "switch_label", "F_local_loss_mean"]
-        ],
-        on=["seed", "src_idx", "dst_idx", "switch_label"],
-        how="inner",
-    )
-    if not q2_df.empty:
-        plot_dual_scale_switch_decomposition(
-            df=q2_df,
-            x_col="F_global_loss",
-            y_col="F_local_loss_mean",
-            out_dir=out_dir,
-            out_prefix="fig_q2_global_forgetting_vs_local_forgetting",
-            title="Q2: Global Forgetting vs Local Forgetting",
-            x_label="F_global_loss",
-            y_label="F_local_loss_mean",
-            log_x=True,
-            log_y=True,
-            signed_x=True,
-            signed_y=True,
-        )
-
-    # Q3: local forgetting vs local upper bound.
-    plot_dual_scale_switch_decomposition(
-        df=client_df,
-        x_col="B_L",
-        y_col="F_local_loss",
-        out_dir=out_dir,
-        out_prefix="fig_q3_local_forgetting_vs_local_upper",
-        title="Q3: Local Forgetting vs Local Upper Bound",
-        x_label="B_L",
-        y_label="F_local_loss",
-        log_x=True,
-        log_y=False,
-    )
-
-    # Q4: how local optimum shift follows global optimum shift.
-    plot_dual_scale_switch_decomposition(
-        df=client_df,
-        x_col="D_G_sq",
-        y_col="D_L_sq",
-        out_dir=out_dir,
-        out_prefix="fig_q4_local_opt_shift_vs_global_opt_shift",
-        title="Q4: Local-Optimal Shift vs Global-Optimal Shift",
-        x_label="D_G_sq",
-        y_label="D_L_sq",
-        log_x=True,
-        log_y=True,
-    )
 
 def main():
     parser = argparse.ArgumentParser(
@@ -1450,7 +1309,6 @@ def main():
     # Build dataframes for analysis.
     global_df = pd.DataFrame(global_switch_rows)
     client_df = pd.DataFrame(client_rows)
-    switch_local_df = pd.DataFrame(switch_local_rows)
 
     if global_df.empty or client_df.empty:
         raise RuntimeError("No results generated. Check task/switch settings.")
@@ -1654,7 +1512,6 @@ def main():
     plot_experiment_3(client_df, output_dir)
     plot_experiment_4(client_df, output_dir)
     plot_experiment_5(exp5, output_dir)
-    plot_core_questions(global_df, client_df, switch_local_df, output_dir)
 
     print("\n===== Completed =====")
     print(f"Global switches: {len(global_df)}")
@@ -1685,3 +1542,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# python -u system/run_global_local_coupling.py --task_datasets permuted-mnist-task1-npz,permuted-mnist-task2-npz,permuted-mnist-task3-npz,permuted-mnist-task4-npz --switch_pairs 1-2,2-3,3-4 --seeds 0,1,2 --model cnn --num_classes 10 --device cuda --device_id 0 --num_clients 8 --join_ratio 1.0 --batch_size 10 --local_steps 1 --local_lr 0.1 --max_rounds_per_task 60 --global_patience 3 --global_min_delta 0.002 --analyze_clients 8 --local_refine_lr 0.05 --local_refine_max_steps 20 --local_refine_patience 4 --hessian_subset_per_client 64 --hessian_batch_size 64 --hessian_max_samples 256 --hessian_power_iter_steps 6 --stable_cl_root "C:\Users\24717\Desktop\LLM Forgetting\stable-continual-learning" --output_dir ./system/global_local_coupling_logs_v2
