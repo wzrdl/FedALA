@@ -333,5 +333,5 @@ python run_continual_switch.py `
   --task2_dataset permuted-mnist-task2-npz `
   --rounds_task1 40 --rounds_task2 40 --times 1 `
   --device cuda --device_id 0 --eval_gap 20 `
-  --output_dir ./continual_logs_permuted_200
+  --output_dir ./continual_logs_permuted_40
 """

@@ -1,0 +1,7 @@
+global_round,task_idx,round_in_task,dataset,client_id,eval_task_idx,eval_dataset,eval_task_role,eval_stage,exp_id,run_seed,global_local_acc,personalized_local_acc,delta_local_acc,test_samples,eval_status
+1,1,1,permuted-mnist-task1-npz,1,1,permuted-mnist-task1-npz,current,pre_local,A,0,0.112,0.112,0.0,125,ok
+1,1,1,permuted-mnist-task1-npz,0,1,permuted-mnist-task1-npz,current,pre_local,A,0,0.1595744680851064,0.1595744680851064,0.0,658,ok
+2,2,1,permuted-mnist-task2-npz,0,1,permuted-mnist-task1-npz,old,pre_local,A,0,0.9559270516717325,0.9559270516717325,0.0,658,ok
+2,2,1,permuted-mnist-task2-npz,0,2,permuted-mnist-task2-npz,current,pre_local,A,0,0.1474164133738602,0.2127659574468085,0.06534954407294832,658,ok
+2,2,1,permuted-mnist-task2-npz,1,1,permuted-mnist-task1-npz,old,pre_local,A,0,0.2,0.224,0.023999999999999994,125,ok
+2,2,1,permuted-mnist-task2-npz,1,2,permuted-mnist-task2-npz,current,pre_local,A,0,0.032,0.72,0.688,125,ok

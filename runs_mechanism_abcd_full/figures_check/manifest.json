@@ -1,0 +1,18 @@
+{
+  "runs_root": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_full",
+  "output_dir": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_full\\figures_check",
+  "num_runs": 4,
+  "experiments": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 1
+  },
+  "rounds_per_task": 100,
+  "num_tasks": 4,
+  "task_boundaries": [
+    100,
+    200,
+    300
+  ]
+}

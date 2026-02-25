@@ -1,0 +1,49 @@
+{
+  "variant": {
+    "exp_id": "C",
+    "run_name": "C_Freeze_P",
+    "personalization_enabled": true,
+    "freeze_mask": "freeze_P",
+    "probe_enabled": false
+  },
+  "seed": 0,
+  "task_datasets": [
+    "permuted-mnist-task1-npz",
+    "permuted-mnist-task2-npz",
+    "permuted-mnist-task3-npz",
+    "permuted-mnist-task4-npz"
+  ],
+  "rounds_per_task": 100,
+  "total_rounds": 400,
+  "final_acc_current_after": 0.9811367585008687,
+  "final_acc_old_mean_after": 0.3430780288939002,
+  "min_delta_agg_old_mean": -0.4057217165149545,
+  "mean_delta_agg_old_mean": -0.0027916280209343415,
+  "mean_delta_agg_old_mean_switch_window": -0.11355153464215818,
+  "max_update_P_norm_mean": 0.0,
+  "max_update_S_norm_mean": 5.4435566181024635,
+  "probe_rows": 0,
+  "probe_enabled": false,
+  "probe_summary": {
+    "ok_rows": 0,
+    "mean_grad_alignment": null,
+    "mean_update_alignment": null,
+    "mean_top_eig_proj_gap_P_minus_G": null,
+    "mean_risk_gap_loss_after_P_minus_G": null
+  },
+  "pers_rows": 900,
+  "pers_summary": {
+    "mean_delta_pers_old_mean_over_client_rounds": 0.0,
+    "max_delta_pers_old_mean_over_client_rounds": 0.0
+  },
+  "theory_rows": 2400,
+  "theory_summary": {
+    "mean_lambda_max_global": 381.8408965847865,
+    "mean_opt_drift_global": 18.109248837058754,
+    "mean_lambda_max_client": 369.17309397918484,
+    "mean_opt_drift_client": 18.109248837058754
+  },
+  "unsupported": {
+    "theory_notes": "lambda_max is estimated via power-iteration HVP on fixed train batches; opt_drift uses best global checkpoint per task"
+  }
+}

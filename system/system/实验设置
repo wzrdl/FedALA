@@ -1,0 +1,65 @@
+很好，这里给你一个“重排后”的总实验清单，包含你新增的客户端 forgetting 分析，且区分 **global optimal** 和 **client local optimal**。
+
+**统一记号（所有实验共用）**
+- `w^G_{s,i}`: seed `s` 下任务 `Ti` 的 global optimal  
+- `w^G_{s,i->j}`: 从 `w^G_{s,i}` 切到 `Tj` 后的 global optimal  
+- `u^L_{s,i,c}`: client `c` 在 source 任务 `Ti` 上的 local optimal（init=`w^G_{s,i}`）  
+- `u^L_{s,i->j,c}`: client `c` 在 source 任务 `Ti` 上的 local optimal（init=`w^G_{s,i->j}`）  
+- `F^G_{s,i->j}`: global forgetting（loss版和acc版都算）  
+- `F^L_{s,i->j,c}`: client forgetting（loss版和acc版都算）  
+- `B^G_{s,i->j}=0.5*lambda_{s,i}*||w^G_{s,i->j}-w^G_{s,i}||^2`  
+- `B^L_{s,i->j,c}=0.5*lambda_{s,i,c}*||u^L_{s,i->j,c}-u^L_{s,i,c}||^2`
+
+---
+
+### 实验 1：`B^G` 与 global forgetting
+- 目标：验证 `0.5*lambda*||Delta w||^2` 对 global forgetting 的解释力。  
+- 样本单位：`(seed, switch)`。  
+- 分析：Pearson、Spearman、`F^G ~ log1p(B^G)` 回归。  
+- 图：`F^G_loss vs B^G`、`F^G_acc vs B^G`。
+
+### 实验 2：global forgetting 与 global/local shift 的关系
+- 指标：`D_G=||w^G_{s,i->j}-w^G_{s,i}||^2`，`D_L_mean=mean_c ||u^L_{s,i->j,c}-u^L_{s,i,c}||^2`。  
+- 样本单位：`(seed, switch)`。  
+- 分析：`F^G ~ log1p(D_G)`，`F^G ~ log1p(D_L_mean)`，联合模型 `F^G ~ log1p(D_G)+log1p(D_L_mean)+交互项`。  
+- 图：三张散点图 + 联合模型系数图。
+
+### 实验 3：client forgetting 与 `B^G` 的关系（你新增）
+- 目标：看每个客户端 forgetting 是否被同一个 switch 的 global二阶项驱动。  
+- 样本单位：`(seed, switch, client)`。  
+- 自变量：`B^G_{s,i->j}`（同一 switch 下所有client共享）。  
+- 因变量：`F^L_{s,i->j,c}`。  
+- 分析：混合效应/分层回归  
+  `F^L ~ log1p(B^G) + 控制项 + (1|seed) + (1|switch) + (1|client)`。  
+- 图：按 switch 分色的 `F^L vs B^G` 散点 + 分层回归拟合线。
+
+### 实验 4：client forgetting 与 `B^L` 的关系（你新增的“每个client自己的local optimal”核心）
+- 目标：验证 client 自身二阶项 `B^L` 对其 forgetting 的解释力。  
+- 样本单位：`(seed, switch, client)`。  
+- 分析：  
+  `F^L ~ log1p(B^L)`，以及  
+  `F^L ~ log1p(B^G)+log1p(B^L)+交互项+控制项`。  
+- 图：`F^L vs B^L` 散点、`B^G` 与 `B^L` 的双变量热图（颜色为 `F^L`）。
+
+### 实验 5：解释力比较（最终结论实验）
+- 比较模型：  
+  `M1: F^L ~ B^G`  
+  `M2: F^L ~ B^L`  
+  `M3: F^L ~ B^G + B^L + 交互`  
+- 指标：`Adj-R2`、AIC/BIC、交叉验证误差。  
+- 目标：回答“global主导 / local主导 / 二者耦合”。
+
+### 实验 6：稳健性实验（建议）
+- Hessian稳健性：`lambda_top1` vs `top-k投影二次项`。  
+- 任务距离稳健性：按 switch 难度分层（近/中/远任务）。  
+- seed稳健性：固定switch看跨seed方差，固定seed看跨switch方差。
+
+---
+
+**推荐运行矩阵（可先跑一版）**
+- 任务：6个任务，取10个switch。  
+- seeds：5。  
+- client层：每个switch分析8个分层抽样client。  
+- 样本量：global层 `50` 点，client层 `400` 点。  
+
+如果你认可，我下一步就按这个清单改脚本结构和输出文件命名（global表、client表、分层回归结果、对应图）。

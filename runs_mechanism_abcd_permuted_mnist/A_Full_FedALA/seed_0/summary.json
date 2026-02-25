@@ -1,0 +1,58 @@
+{
+  "variant": {
+    "exp_id": "A",
+    "run_name": "A_Full_FedALA",
+    "personalization_enabled": true,
+    "freeze_mask": "none",
+    "probe_enabled": true
+  },
+  "seed": 0,
+  "task_datasets": [
+    "permuted-mnist-task1-npz",
+    "permuted-mnist-task2-npz",
+    "permuted-mnist-task3-npz",
+    "permuted-mnist-task4-npz"
+  ],
+  "rounds_per_task": 200,
+  "total_rounds": 800,
+  "final_acc_current_after": 0.8781967923710446,
+  "final_acc_old_mean_after": 0.3509608438086982,
+  "min_delta_agg_old_mean": -0.3506718682271348,
+  "mean_delta_agg_old_mean": -0.001501348552713962,
+  "mean_delta_agg_old_mean_switch_window": -0.0810014609321068,
+  "max_update_P_norm_mean": 1.8454094216173125,
+  "max_update_S_norm_mean": 5.14555653318992,
+  "probe_rows": 45,
+  "probe_enabled": true,
+  "probe_summary": {
+    "ok_rows": 45,
+    "mean_grad_alignment": 0.8464560039121759,
+    "mean_update_alignment": 0.8756145651327317,
+    "mean_top_eig_proj_gap_P_minus_G": -0.0666813868490097,
+    "mean_risk_gap_loss_after_P_minus_G": -0.21016306712395613
+  },
+  "pers_rows": 9000,
+  "local_eval_rows": 10000,
+  "local_eval_summary": {
+    "final_local_eval_global_acc_current_mean": 0.8636791848413392,
+    "final_local_eval_personalized_acc_current_mean": 0.9599467074746398,
+    "final_local_eval_global_acc_old_mean": 0.3642817981146694,
+    "final_local_eval_personalized_acc_old_mean": 0.6893404175479907,
+    "final_local_eval_global_acc_seen_mean": 0.48913114479633696,
+    "final_local_eval_personalized_acc_seen_mean": 0.7569919900296529
+  },
+  "pers_summary": {
+    "mean_delta_pers_old_mean_over_client_rounds": 0.3010786548885824,
+    "max_delta_pers_old_mean_over_client_rounds": 0.8872549019607844
+  },
+  "theory_rows": 14400,
+  "theory_summary": {
+    "mean_lambda_max_global": 489.32760343519845,
+    "mean_opt_drift_global": 10.445857758942312,
+    "mean_lambda_max_client": 339.3471351519028,
+    "mean_opt_drift_client": 10.588951805719349
+  },
+  "unsupported": {
+    "theory_notes": "lambda_max is estimated via power-iteration HVP on fixed train batches; opt_drift uses best global checkpoint per task"
+  }
+}

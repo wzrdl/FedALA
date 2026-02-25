@@ -1,0 +1,106 @@
+{
+  "experiment": {
+    "run_name": "B_No_Pers",
+    "seed": 0,
+    "times": 1,
+    "output_dir": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_full"
+  },
+  "task_sequence": {
+    "datasets": [
+      "permuted-mnist-task1-npz",
+      "permuted-mnist-task2-npz",
+      "permuted-mnist-task3-npz",
+      "permuted-mnist-task4-npz"
+    ],
+    "num_tasks": 4,
+    "rounds_per_task": 100,
+    "reset_optimizer_on_switch": false,
+    "reset_model_on_switch": false
+  },
+  "federated": {
+    "num_clients": 5,
+    "client_fraction": 0.2,
+    "sampling_seed": 2026,
+    "aggregator": "fedavg"
+  },
+  "local_train": {
+    "optimizer": "sgd",
+    "lr": 0.01,
+    "momentum": 0.9,
+    "weight_decay": 0.0,
+    "batch_size": 10,
+    "local_epochs_or_steps": 1,
+    "grad_clip_norm": null
+  },
+  "personalization": {
+    "method": "fedala",
+    "enabled": false,
+    "rand_percent": 80,
+    "eta": 1.0,
+    "layer_idx": 2,
+    "ala_threshold": 0.1,
+    "ala_num_pre_loss": 10
+  },
+  "freeze": {
+    "enabled": false,
+    "mask": "none",
+    "bn_policy": "freeze_stats"
+  },
+  "mechanism_logging": {
+    "log_update_norms": true,
+    "log_update_subspace_norms": true,
+    "log_step_shocks": true,
+    "log_personalization_gain": true,
+    "record_clients_per_round": "all_participants"
+  },
+  "probe": {
+    "enabled": true,
+    "placeholder_only": false,
+    "only_window_after_switch_rounds": 3,
+    "clients_per_round": 5,
+    "steps": 5,
+    "batch_size": 64,
+    "fixed_seed": 777,
+    "fixed_batch": true,
+    "record": [
+      "U_norm",
+      "U_P_norm",
+      "U_S_norm",
+      "grad_alignment",
+      "update_alignment",
+      "top_eig_proj",
+      "risk_gap"
+    ],
+    "top_eig": {
+      "enabled": true,
+      "power_steps": 8,
+      "batch_source": "first_probe_batch"
+    }
+  },
+  "theory_metrics": {
+    "enabled": true,
+    "lambda_max": {
+      "enabled": true,
+      "method": "power_iter_hvp_fixed_batch",
+      "power_steps": 20,
+      "batch_size": 256,
+      "fixed_batch_seed": 123,
+      "eval_tasks": "old_tasks_mean"
+    },
+    "opt_drift": {
+      "enabled": true,
+      "mode": "best_checkpoint_per_task",
+      "distance": "l2"
+    },
+    "window_after_switch_rounds": 0,
+    "global_clients_per_task": 0,
+    "client_models_per_round": 0,
+    "include_personalized": true
+  },
+  "runtime": {
+    "device": "cuda",
+    "device_id": "0",
+    "model": "cnn",
+    "num_classes": 10
+  }
+}

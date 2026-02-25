@@ -1,0 +1,43 @@
+{
+  "runs_root": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist",
+  "output_dir": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\mechanism_core",
+  "figures_generated": [
+    "fig1_macro_forgetting_trajectory.png",
+    "fig2_aggregation_shock_dynamics.png",
+    "fig3_subspace_update_norms.png",
+    "fig4_causal_scatter_pnorm_vs_shock.png",
+    "fig5_progress_matched_anti_confounder.png",
+    "fig6_theory_metrics_before_local_global.png",
+    "fig7_microscopic_probe_p1.png"
+  ],
+  "exports": {
+    "aggregated_round_metrics_mean": "aggregated_round_metrics_mean.csv",
+    "aggregated_theory_metrics": "aggregated_theory_metrics_before_local_global.csv",
+    "aggregated_probe_summary": "aggregated_probe_summary.csv"
+  },
+  "config": {
+    "dpi": 180,
+    "title_suffix": "Permuted MNIST",
+    "shock_window_rounds": 10,
+    "scatter_window_rounds": 5,
+    "progress_bins": 30,
+    "theory_phase": "before_local",
+    "theory_scope": "global",
+    "probe_experiment": "A",
+    "rolling": 1
+  },
+  "data_counts": {
+    "round_rows": 3200,
+    "probe_rows": 90,
+    "theory_rows": 57600,
+    "experiments": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "seeds": [
+      0
+    ]
+  }
+}

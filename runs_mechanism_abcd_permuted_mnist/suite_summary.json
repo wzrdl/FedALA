@@ -1,0 +1,29 @@
+{
+  "num_runs": 4,
+  "experiments": {
+    "A": {
+      "runs": 1,
+      "final_acc_old_mean_after_mean": 0.3509608438086982,
+      "final_acc_current_after_mean": 0.8781967923710446,
+      "min_delta_agg_old_mean_mean": -0.3506718682271348
+    },
+    "B": {
+      "runs": 1,
+      "final_acc_old_mean_after_mean": 0.20762895535327264,
+      "final_acc_current_after_mean": 0.8955353272648461,
+      "min_delta_agg_old_mean_mean": -0.3667100130039012
+    },
+    "C": {
+      "runs": 1,
+      "final_acc_old_mean_after_mean": 0.4672735153879497,
+      "final_acc_current_after_mean": 0.9215431296055483,
+      "min_delta_agg_old_mean_mean": -0.140442132639792
+    },
+    "D": {
+      "runs": 1,
+      "final_acc_old_mean_after_mean": 0.36931079323797134,
+      "final_acc_current_after_mean": 0.5413957520589511,
+      "min_delta_agg_old_mean_mean": -0.08235804074555697
+    }
+  }
+}

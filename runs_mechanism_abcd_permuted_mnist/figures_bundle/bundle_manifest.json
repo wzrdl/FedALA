@@ -1,0 +1,118 @@
+{
+  "runs_root": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist",
+  "output_root": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle",
+  "tasks": [
+    "mechanism_core",
+    "global_taskwise",
+    "local_mean_old_tasks"
+  ],
+  "config": {
+    "dpi": 180,
+    "title_suffix": "Permuted MNIST",
+    "rolling": 1,
+    "shock_window_rounds": 10,
+    "scatter_window_rounds": 5,
+    "progress_bins": 30,
+    "local_client_weighted": true,
+    "local_overlay_global_baseline": true
+  },
+  "notes": [
+    "mechanism_core: 7 figures from plot_mechanism_abcd_results.py",
+    "global_taskwise: per-experiment global model task-wise accuracy curves",
+    "local_mean_old_tasks: per-experiment local personalized old-task accuracy curves from pers_metrics.csv",
+    "If you want local task-wise (current+old) curves from local_eval_metrics.csv, add a new plot script based on local_eval_metrics."
+  ],
+  "run_log": [
+    {
+      "name": "mechanism_core",
+      "command": [
+        "C:\\Users\\24717\\anaconda3\\python.exe",
+        "C:\\Users\\24717\\Desktop\\FedALA\\system\\plot_mechanism_abcd_results.py",
+        "--runs_root",
+        "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist",
+        "--output_dir",
+        "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\mechanism_core",
+        "--dpi",
+        "180",
+        "--title_suffix",
+        "Permuted MNIST",
+        "--rolling",
+        "1",
+        "--shock_window_rounds",
+        "10",
+        "--scatter_window_rounds",
+        "5",
+        "--progress_bins",
+        "30"
+      ],
+      "returncode": 0,
+      "stdout_tail": [
+        "Saved 7 figures to C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\mechanism_core",
+        " - fig1_macro_forgetting_trajectory.png",
+        " - fig2_aggregation_shock_dynamics.png",
+        " - fig3_subspace_update_norms.png",
+        " - fig4_causal_scatter_pnorm_vs_shock.png",
+        " - fig5_progress_matched_anti_confounder.png",
+        " - fig6_theory_metrics_before_local_global.png",
+        " - fig7_microscopic_probe_p1.png"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "global_taskwise",
+      "command": [
+        "C:\\Users\\24717\\anaconda3\\python.exe",
+        "C:\\Users\\24717\\Desktop\\FedALA\\system\\plot_global_acc_all_tasks_by_experiment.py",
+        "--runs_root",
+        "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist",
+        "--output_dir",
+        "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\global_taskwise",
+        "--dpi",
+        "180",
+        "--title_suffix",
+        "Permuted MNIST",
+        "--rolling",
+        "1",
+        "--include_mean"
+      ],
+      "returncode": 0,
+      "stdout_tail": [
+        "Saved 4 figures to C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\global_taskwise",
+        " - A_Full_FedALA_global_acc_all_tasks.png",
+        " - B_No_Pers_global_acc_all_tasks.png",
+        " - C_Freeze_P_global_acc_all_tasks.png",
+        " - D_Freeze_S_global_acc_all_tasks.png"
+      ],
+      "stderr_tail": []
+    },
+    {
+      "name": "local_mean_old_tasks",
+      "command": [
+        "C:\\Users\\24717\\anaconda3\\python.exe",
+        "C:\\Users\\24717\\Desktop\\FedALA\\system\\plot_local_mean_acc_by_experiment.py",
+        "--runs_root",
+        "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist",
+        "--output_dir",
+        "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\local_mean_old_tasks",
+        "--dpi",
+        "180",
+        "--title_suffix",
+        "Permuted MNIST",
+        "--rolling",
+        "1",
+        "--include_mean",
+        "--client_weighted",
+        "--also_plot_global_local_baseline"
+      ],
+      "returncode": 0,
+      "stdout_tail": [
+        "Saved 4 figures to C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\local_mean_old_tasks",
+        " - A_Full_FedALA_local_mean_acc_old_tasks.png",
+        " - B_No_Pers_local_mean_acc_old_tasks.png",
+        " - C_Freeze_P_local_mean_acc_old_tasks.png",
+        " - D_Freeze_S_local_mean_acc_old_tasks.png"
+      ],
+      "stderr_tail": []
+    }
+  ]
+}

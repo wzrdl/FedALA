@@ -1,0 +1,56 @@
+{
+  "variant": {
+    "exp_id": "A",
+    "run_name": "A_Full_FedALA",
+    "personalization_enabled": true,
+    "freeze_mask": "none",
+    "probe_enabled": true
+  },
+  "seed": 0,
+  "task_datasets": [
+    "permuted-mnist-task1-npz",
+    "permuted-mnist-task2-npz"
+  ],
+  "rounds_per_task": 1,
+  "total_rounds": 2,
+  "final_acc_current_after": 0.7752234993614304,
+  "final_acc_old_mean_after": 0.7726692209450831,
+  "min_delta_agg_old_mean": -0.06257982120051087,
+  "mean_delta_agg_old_mean": -0.06257982120051087,
+  "mean_delta_agg_old_mean_switch_window": null,
+  "max_update_P_norm_mean": 1.2331571922042288,
+  "max_update_S_norm_mean": 1.8785013613324748,
+  "probe_rows": 0,
+  "probe_enabled": true,
+  "probe_summary": {
+    "ok_rows": 0,
+    "mean_grad_alignment": null,
+    "mean_update_alignment": null,
+    "mean_top_eig_proj_gap_P_minus_G": null,
+    "mean_risk_gap_loss_after_P_minus_G": null
+  },
+  "pers_rows": 0,
+  "local_eval_rows": 6,
+  "local_eval_summary": {
+    "final_local_eval_global_acc_current_mean": 0.0897082066869301,
+    "final_local_eval_personalized_acc_current_mean": 0.46638297872340423,
+    "final_local_eval_global_acc_old_mean": 0.5779635258358663,
+    "final_local_eval_personalized_acc_old_mean": 0.5899635258358663,
+    "final_local_eval_global_acc_seen_mean": 0.33383586626139816,
+    "final_local_eval_personalized_acc_seen_mean": 0.5281732522796352
+  },
+  "pers_summary": {
+    "mean_delta_pers_old_mean_over_client_rounds": null,
+    "max_delta_pers_old_mean_over_client_rounds": null
+  },
+  "theory_rows": 0,
+  "theory_summary": {
+    "mean_lambda_max_global": null,
+    "mean_opt_drift_global": null,
+    "mean_lambda_max_client": null,
+    "mean_opt_drift_client": null
+  },
+  "unsupported": {
+    "theory_notes": "lambda_max is estimated via power-iteration HVP on fixed train batches; opt_drift uses best global checkpoint per task"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "runs": [
+    {
+      "exp_id": "B",
+      "run_name": "B_No_Pers",
+      "seed": 0,
+      "freeze_mask": "none",
+      "personalization_enabled": 0,
+      "probe_enabled": 1,
+      "final_acc_current_after": 0.9798957557706627,
+      "final_acc_old_mean_after": 0.28048662799385854,
+      "min_delta_agg_old_mean": -0.39661898569570875,
+      "mean_delta_agg_old_mean_switch_window": -0.06880447751250814,
+      "max_update_P_norm_mean": 2.987605179247987,
+      "max_update_S_norm_mean": 7.537427098283858,
+      "probe_rows": 9,
+      "pers_rows": 900,
+      "theory_rows": 2400
+    }
+  ]
+}

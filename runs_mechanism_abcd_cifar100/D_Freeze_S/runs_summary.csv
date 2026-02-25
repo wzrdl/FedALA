@@ -1,0 +1,2 @@
+exp_id,run_name,seed,freeze_mask,personalization_enabled,probe_enabled,final_acc_current_after,final_acc_old_mean_after,min_delta_agg_old_mean,mean_delta_agg_old_mean_switch_window,max_update_P_norm_mean,max_update_S_norm_mean,probe_rows,pers_rows,theory_rows
+D,D_Freeze_S,0,freeze_S,1,0,0.27710843373493976,0.0,-0.027949043652441545,-0.008222026434260793,4.913102521193307,0.0,0,9000,14400

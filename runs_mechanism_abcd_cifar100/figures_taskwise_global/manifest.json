@@ -1,0 +1,21 @@
+{
+  "runs_root": "runs_mechanism_abcd_cifar100",
+  "output_dir": "runs_mechanism_abcd_cifar100\\figures_taskwise_global",
+  "figures_generated": [
+    "A_Full_FedALA_global_acc_all_tasks.png",
+    "B_No_Pers_global_acc_all_tasks.png",
+    "C_Freeze_P_global_acc_all_tasks.png",
+    "D_Freeze_S_global_acc_all_tasks.png"
+  ],
+  "config": {
+    "dpi": 180,
+    "title_suffix": "CIFAR100",
+    "include_mean": true,
+    "rolling": 1
+  },
+  "notes": [
+    "Curves are parsed from round_metrics.csv column acc_after_json.",
+    "Tasks not yet introduced are absent in acc_after_json, so their curves start when the task first appears.",
+    "If --include_mean is used, the dashed line is mean accuracy over seen tasks at each round."
+  ]
+}

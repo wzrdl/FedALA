@@ -1,0 +1,24 @@
+{
+  "runs_root": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist",
+  "output_dir": "C:\\Users\\24717\\Desktop\\FedALA\\runs_mechanism_abcd_permuted_mnist\\figures_bundle\\local_mean_old_tasks",
+  "figures_generated": [
+    "A_Full_FedALA_local_mean_acc_old_tasks.png",
+    "B_No_Pers_local_mean_acc_old_tasks.png",
+    "C_Freeze_P_local_mean_acc_old_tasks.png",
+    "D_Freeze_S_local_mean_acc_old_tasks.png"
+  ],
+  "config": {
+    "dpi": 180,
+    "title_suffix": "Permuted MNIST",
+    "rolling": 1,
+    "include_mean": true,
+    "client_weighted": true,
+    "also_plot_global_local_baseline": true
+  },
+  "notes": [
+    "Data source: pers_metrics.csv",
+    "Per-task curves use old_task_idx > 0 and personalized_acc_old_task aggregated across sampled clients.",
+    "old_task_idx=0 rows in pers_metrics are delta-only summaries and are not used for accuracy aggregation.",
+    "If --include_mean is set, the mean line is recomputed from per-task aggregated local accuracies."
+  ]
+}

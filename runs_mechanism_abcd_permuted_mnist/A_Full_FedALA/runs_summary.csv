@@ -1,0 +1,2 @@
+exp_id,run_name,seed,freeze_mask,personalization_enabled,probe_enabled,final_acc_current_after,final_acc_old_mean_after,min_delta_agg_old_mean,mean_delta_agg_old_mean_switch_window,max_update_P_norm_mean,max_update_S_norm_mean,probe_rows,pers_rows,local_eval_rows,theory_rows
+A,A_Full_FedALA,0,none,1,1,0.8781967923710446,0.3509608438086982,-0.3506718682271348,-0.0810014609321068,1.8454094216173125,5.14555653318992,45,9000,10000,14400

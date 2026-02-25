@@ -1,0 +1,21 @@
+{
+  "runs": [
+    {
+      "exp_id": "C",
+      "run_name": "C_Freeze_P",
+      "seed": 0,
+      "freeze_mask": "freeze_P",
+      "personalization_enabled": 1,
+      "probe_enabled": 0,
+      "final_acc_current_after": 0.9811367585008687,
+      "final_acc_old_mean_after": 0.3430780288939002,
+      "min_delta_agg_old_mean": -0.4057217165149545,
+      "mean_delta_agg_old_mean_switch_window": -0.11355153464215818,
+      "max_update_P_norm_mean": 0.0,
+      "max_update_S_norm_mean": 5.4435566181024635,
+      "probe_rows": 0,
+      "pers_rows": 900,
+      "theory_rows": 2400
+    }
+  ]
+}

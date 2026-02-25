@@ -1,0 +1,22 @@
+{
+  "runs": [
+    {
+      "exp_id": "D",
+      "run_name": "D_Freeze_S",
+      "seed": 0,
+      "freeze_mask": "freeze_S",
+      "personalization_enabled": 1,
+      "probe_enabled": 0,
+      "final_acc_current_after": 0.5413957520589511,
+      "final_acc_old_mean_after": 0.36931079323797134,
+      "min_delta_agg_old_mean": -0.08235804074555697,
+      "mean_delta_agg_old_mean_switch_window": -0.019578095650917494,
+      "max_update_P_norm_mean": 4.219531486937363,
+      "max_update_S_norm_mean": 2.0882305918099164e-07,
+      "probe_rows": 0,
+      "pers_rows": 9000,
+      "local_eval_rows": 10000,
+      "theory_rows": 14400
+    }
+  ]
+}

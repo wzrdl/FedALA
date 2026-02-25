@@ -1,0 +1,58 @@
+{
+  "variant": {
+    "exp_id": "D",
+    "run_name": "D_Freeze_S",
+    "personalization_enabled": true,
+    "freeze_mask": "freeze_S",
+    "probe_enabled": false
+  },
+  "seed": 0,
+  "task_datasets": [
+    "permuted-mnist-task1-npz",
+    "permuted-mnist-task2-npz",
+    "permuted-mnist-task3-npz",
+    "permuted-mnist-task4-npz"
+  ],
+  "rounds_per_task": 200,
+  "total_rounds": 800,
+  "final_acc_current_after": 0.5413957520589511,
+  "final_acc_old_mean_after": 0.36931079323797134,
+  "min_delta_agg_old_mean": -0.08235804074555697,
+  "mean_delta_agg_old_mean": -0.0007344796031402013,
+  "mean_delta_agg_old_mean_switch_window": -0.019578095650917494,
+  "max_update_P_norm_mean": 4.219531486937363,
+  "max_update_S_norm_mean": 2.0882305918099164e-07,
+  "probe_rows": 0,
+  "probe_enabled": false,
+  "probe_summary": {
+    "ok_rows": 0,
+    "mean_grad_alignment": null,
+    "mean_update_alignment": null,
+    "mean_top_eig_proj_gap_P_minus_G": null,
+    "mean_risk_gap_loss_after_P_minus_G": null
+  },
+  "pers_rows": 9000,
+  "local_eval_rows": 10000,
+  "local_eval_summary": {
+    "final_local_eval_global_acc_current_mean": 0.4866896837578869,
+    "final_local_eval_personalized_acc_current_mean": 0.9131571743992659,
+    "final_local_eval_global_acc_old_mean": 0.3453912584463733,
+    "final_local_eval_personalized_acc_old_mean": 0.7068482247201034,
+    "final_local_eval_global_acc_seen_mean": 0.3807158647742518,
+    "final_local_eval_personalized_acc_seen_mean": 0.758425462139894
+  },
+  "pers_summary": {
+    "mean_delta_pers_old_mean_over_client_rounds": 0.39722945804247917,
+    "max_delta_pers_old_mean_over_client_rounds": 0.8333333333333333
+  },
+  "theory_rows": 14400,
+  "theory_summary": {
+    "mean_lambda_max_global": 7788.19334113566,
+    "mean_opt_drift_global": 40.3314031161331,
+    "mean_lambda_max_client": 7114.462782685598,
+    "mean_opt_drift_client": 40.616055512404024
+  },
+  "unsupported": {
+    "theory_notes": "lambda_max is estimated via power-iteration HVP on fixed train batches; opt_drift uses best global checkpoint per task"
+  }
+}

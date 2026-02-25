@@ -1,0 +1,11 @@
+{
+  "num_runs": 1,
+  "experiments": {
+    "A": {
+      "runs": 1,
+      "final_acc_old_mean_after_mean": 0.7726692209450831,
+      "final_acc_current_after_mean": 0.7752234993614304,
+      "min_delta_agg_old_mean_mean": -0.06257982120051087
+    }
+  }
+}

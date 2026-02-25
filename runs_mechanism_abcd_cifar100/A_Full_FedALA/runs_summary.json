@@ -1,0 +1,21 @@
+{
+  "runs": [
+    {
+      "exp_id": "A",
+      "run_name": "A_Full_FedALA",
+      "seed": 0,
+      "freeze_mask": "none",
+      "personalization_enabled": 1,
+      "probe_enabled": 1,
+      "final_acc_current_after": 0.4423407917383821,
+      "final_acc_old_mean_after": 0.0,
+      "min_delta_agg_old_mean": -0.4950900163666121,
+      "mean_delta_agg_old_mean_switch_window": -0.1031805872236839,
+      "max_update_P_norm_mean": 3.9369774006664002,
+      "max_update_S_norm_mean": 7.707970290805376,
+      "probe_rows": 45,
+      "pers_rows": 9000,
+      "theory_rows": 14400
+    }
+  ]
+}
